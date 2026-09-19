@@ -1,4 +1,6 @@
 node_modules
+apikey.py
+__pycache__/
+*.pyc
 .env
-node_modules
 
