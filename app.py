@@ -58,30 +58,23 @@ if __name__ == "__main__":
     img_consent = st.radio("Do you want to generate images for your blog post?", ("Yes", "No")) #radio button for image generation consent
     img_count = 0
     
-    if img_consent == "Yes":
-      img_count = st.slider("How many images do you want in your blog?", 1,5,1) #slider for number of images in blog post
-    
-    submit_btn = st.button("Generate blog") #button to generate blog post
-    
-    if submit_btn:
+if img_consent == "Yes":
+  img_count = st.slider("How many images do you want in your blog?", 1,5,1) #slider for number of images in blog post
 
-        if not blog_title:
-            st.warning("Please enter a blog title.")
+submit_btn = st.button("Generate blog") #button to generate blog post
 
-        elif not keyword_ip:
-            st.warning("Please enter at least one keyword.")
-
-        else:
-
-            with st.spinner("Generating blog..."):
-
-                blog_post = generate_blog_post(
-                    blog_title,
-                    keyword_ip,
-                    number_words,
-                    img_consent,
-                    img_count
-                )
-
-            st.markdown(blog_post)
-
+if submit_btn:
+    if not blog_title:
+        st.warning("Please enter a blog title.")
+    elif not keyword_ip:
+        st.warning("Please enter at least one keyword.")
+    else:
+        with st.spinner("Generating blog..."):
+            blog_post = generate_blog_post(
+                blog_title,
+                keyword_ip,
+                number_words,
+                img_consent,
+                img_count
+            )
+        st.markdown(blog_post)
